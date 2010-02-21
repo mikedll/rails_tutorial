@@ -13,6 +13,11 @@
 	</p>
 
 	<p>
+		<%= f.label :mood %>
+		<%= f.collection_select :mood_id, Mood.all, :id, :name %>
+	</p>
+
+	<p>
 		<%= f.submit "Save" %>
 		</p>
 

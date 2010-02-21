@@ -1,0 +1,18 @@
+
+<h1>Your comment has been created!</h1>
+
+<p>
+	Great job. You've completed the wizard to create a comment.
+</p>
+
+<p>
+	<%= link_to "Show it", post_comment_path( @post, @comment ) %> |
+
+	<%= link_to "Edit", edit_post_comment_path( @post, @comment ) %> |
+
+	<%= link_to "Visit post", post_path(@post) %> |
+</p>
+
+<p>
+	<%= link_to "Home", root_path %>
+</p>

@@ -1,0 +1,17 @@
+
+<h1>Almost done! Create a body for your comment here.</h1>
+
+<% form_for([@post, @comment], :url => cfourth_path ) do |f| %>
+
+	<%= f.error_messages %>
+
+	<p>
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+	</p>
+	
+	<p>
+		<%= f.submit "Continue" %>
+	</p>
+
+<% end %>

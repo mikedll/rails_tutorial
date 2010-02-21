@@ -13,6 +13,7 @@
 <% for c in @post.comments %>
 <p><b>Commenter:</b> <%= c.commenter %></p>
 <p><b>Body:</b> <%= c.body %></p>
+<p><b>Mood:</b> <%= c.mood.name %></p>
 <p>--</p>
 <% end %>
 	

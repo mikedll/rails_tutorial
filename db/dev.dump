@@ -1,0 +1,33 @@
+BEGIN TRANSACTION;
+CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
+INSERT INTO "schema_migrations" VALUES('20100221111157');
+INSERT INTO "schema_migrations" VALUES('20100221121246');
+INSERT INTO "schema_migrations" VALUES('20100221182136');
+INSERT INTO "schema_migrations" VALUES('20100221182201');
+INSERT INTO "schema_migrations" VALUES('20100221182533');
+CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "content" text, "created_at" datetime, "updated_at" datetime);
+INSERT INTO "posts" VALUES(1,'Mike','Sup dawg','Hey, here''s a post to take us back to the old days.','2010-02-21 18:26:48','2010-02-21 18:28:25');
+INSERT INTO "posts" VALUES(2,'Sarah','I miss Mike','When will you come visit me, Mike.
+
+It''s been several days since we talked.
+
+I miss seeing you.
+
+Oh mike...come see me!
+
+','2010-02-21 18:28:52','2010-02-21 18:28:52');
+DELETE FROM sqlite_sequence;
+INSERT INTO "sqlite_sequence" VALUES('moods',4);
+INSERT INTO "sqlite_sequence" VALUES('posts',2);
+INSERT INTO "sqlite_sequence" VALUES('comments',3);
+CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commenter" varchar(255), "body" text, "post_id" integer, "created_at" datetime, "updated_at" datetime, "mood_id" integer);
+INSERT INTO "comments" VALUES(1,'Mike','Hey, I''m not sure I like your post...',1,'2010-02-21 18:27:01','2010-02-21 18:27:08',4);
+INSERT INTO "comments" VALUES(2,'Mike','Oh Sarah, if only we lived in a closer proximity to each other.',2,'2010-02-21 18:29:08','2010-02-21 18:29:08',1);
+INSERT INTO "comments" VALUES(3,'Doug (Sarah''s Ex bf)','Stay away from her, Mike.',2,'2010-02-21 18:29:50','2010-02-21 18:29:50',4);
+CREATE TABLE "moods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime);
+INSERT INTO "moods" VALUES(1,'Happy','2010-02-21 18:26:07','2010-02-21 18:26:07');
+INSERT INTO "moods" VALUES(2,'Angry','2010-02-21 18:26:07','2010-02-21 18:26:07');
+INSERT INTO "moods" VALUES(3,'Sad','2010-02-21 18:26:07','2010-02-21 18:26:07');
+INSERT INTO "moods" VALUES(4,'meh...','2010-02-21 18:26:07','2010-02-21 18:26:07');
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+COMMIT;

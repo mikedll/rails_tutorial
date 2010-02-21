@@ -1,0 +1,28 @@
+
+
+<h1>Begin to create a comment for your post.</h1>
+
+<% form_for([@post, @comment], :url => cthird_path ) do |f| %>
+
+	<h3>You are building a comment for: <%= @post.title %></h3>
+
+	<p>
+		<%= f.label :commenter %>
+		<%= f.text_field :commenter %>
+	</p>
+		
+	<p><em>How do you feel about this post?</em>
+		<% for m in Mood.all %>
+			<div>
+			<label><%= f.radio_button :mood_id, m.id %><%= m.name %></label>
+			</div>
+		<% end %>
+	</p>
+
+	<p>
+		<%= f.submit "Continue" %>
+		</p>
+
+<% end %>
+
+<%= link_to "Cancel and return to posts", posts_path %>

@@ -1,0 +1,15 @@
+
+<h1>Comment Wizard</h1>
+
+<p>This will help you build a comment gradually, for a given post.</p>
+
+<% form_tag( csecond_path ) do %>
+
+<p>
+<%= label_tag "Select your post: " %>
+<%= select_tag(:post_id, options_from_collection_for_select( @posts, :id, :title, @post_id || @posts.first.id ) ) %>
+</p>
+
+<%= submit_tag "Continue" %>
+
+<% end %>

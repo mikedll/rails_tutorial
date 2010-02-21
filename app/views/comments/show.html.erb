@@ -9,6 +9,10 @@ Body: <%= @comment.body %>
 </p>
 
 <p>
+Mood: <%= @comment.mood.name %>
+</p>
+
+<p>
 <%= link_to "Edit", edit_post_comment_path(@post, @comment) %>
 
 <%= link_to "Back to comments for this post", post_comments_path(@post) %>

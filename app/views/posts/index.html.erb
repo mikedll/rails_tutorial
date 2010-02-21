@@ -1,0 +1,26 @@
+<h1 id="main_title">Welcome to the global blog!!</h1>
+
+<table id="post_list">
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+
+<% for post in @posts %>
+  <tr>
+    <td><%=h post.name %></td>
+    <td><%=h post.title %></td>
+    <td><%=h post.content[0,50] + "..." %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?',
+            :method => :delete %>
+		<%= link_to "Comments (#{post.comments.count})", post_comments_path(post)%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post', new_post_path %>

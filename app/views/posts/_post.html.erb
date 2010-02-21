@@ -1,0 +1,20 @@
+
+<h1><%= @post.title %></h1>
+<h2>by <%= @post.name %></h2>
+
+<div class="post_body">
+	<%= @post.content %>
+</div>
+
+<div class="comment_list">
+
+<h2>Comments</h2>
+
+<% for c in @post.comments %>
+<p><b>Commenter:</b> <%= c.commenter %></p>
+<p><b>Body:</b> <%= c.body %></p>
+<p>--</p>
+<% end %>
+	
+</div>
+

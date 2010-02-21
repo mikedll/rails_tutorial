@@ -1,0 +1,9 @@
+
+<h1>Editing comment </h1>
+
+<%= render :partial => "form" %>
+
+<p>
+<%= link_to "Show", post_comment_path(@post, @comment) %> |
+<%= link_to "Back to all comments", post_comments_path(@post) %>
+</p>

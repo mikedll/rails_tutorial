@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: Great Day
+  title: I got the job
+  content: At work they decided to let me drive the hovercraft.
+
+two:
+  name: Mediocre Day
+  title: Had to stay late
+  content: At work the hovercraft broke and I had to fix it. Sucked but at least I'm not in trouble.

@@ -1,0 +1,16 @@
+<h1>Comment on <%= @post.title %></h1>
+
+<p>
+Commenter: <%= @comment.commenter %>
+</p>
+
+<p>
+Body: <%= @comment.body %>
+</p>
+
+<p>
+<%= link_to "Edit", edit_post_comment_path(@post, @comment) %>
+
+<%= link_to "Back to comments for this post", post_comments_path(@post) %>
+
+</p>

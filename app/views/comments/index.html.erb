@@ -1,0 +1,23 @@
+
+<h1>Comments for post <%= link_to @post.title, @post %>.</h1>
+
+<table>
+	<tr>
+		<th>Commenter</th>
+		<th>Body</th>
+		<th>Options:</th>
+	</tr>
+
+<% for comment in @comments %>
+	<tr>
+		<td><%= comment.commenter %></td>
+		<td><%= comment.body %></td>
+		<td><%= link_to "Edit", edit_post_comment_path(@post, comment)%> | <%= link_to "Destroy", post_comment_path(@post, comment), :confirm => "Are you sure?",
+		 	:method => :delete %></td>
+	</tr>
+<% end %>
+</table>
+
+<p>
+<%= link_to "Posts", posts_path %>
+</p>

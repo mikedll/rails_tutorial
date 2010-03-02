@@ -58,6 +58,10 @@ class EnumerableTests < Test::Unit::TestCase
     assert_equal Payment.new(0), [].sum(Payment.new(0))
   end
 
+  def test_enumerable_sums
+    assert_equal 10, (1..4).sum
+  end
+
   def test_each_with_object
     result = %w(foo bar).each_with_object({}) { |str, hsh| hsh[str] = str.upcase }
     assert_equal({'foo' => 'FOO', 'bar' => 'BAR'}, result)
@@ -78,5 +82,16 @@ class EnumerableTests < Test::Unit::TestCase
     assert ![ 2 ].many? {|x| x > 1 }
     assert ![ 1, 2 ].many? {|x| x > 1 }
     assert [ 1, 2, 2 ].many? {|x| x > 1 }
+  end
+
+  def test_none
+    assert [].none?
+    assert [nil, false].none?
+    assert ![1].none?
+
+    assert [].none? {|x| x > 1 }
+    assert ![ 2 ].none? {|x| x > 1 }
+    assert ![ 1, 2 ].none? {|x| x > 1 }
+    assert [ 1, 1 ].none? {|x| x > 1 }
   end
 end
